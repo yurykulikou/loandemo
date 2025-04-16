@@ -37,7 +37,9 @@ Service: Formula:
 A = P * [r*(1+r)^n] / [(1+r)^n - 1]
 
 P - loan amount - total
+
 r - monthly interest rate (1% = 0.01)
+
 n - months count (loan term)
 
 -----------------------------------------------------------------------
