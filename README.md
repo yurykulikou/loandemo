@@ -90,4 +90,49 @@ out: {error: <error description>}
 
 App: Test Exception processing
 + Manual test using PostMan
+
+Request 1:
+POST 127.0.0.1:8080/api/loan/schedule
+Body:
+{
+  "loanAmount": 100000,
+  "interestRate": 10,
+  "termMonths": 3
+}
+
+Response (JSON):
+[
+    {
+        "month": 1,
+        "totalPayment": 33890.43,
+        "principal": 33057.09,
+        "interest": 833.33,
+        "remainingBalance": 66942.91
+    },
+    {
+        "month": 2,
+        "totalPayment": 33890.43,
+        "principal": 33332.57,
+        "interest": 557.86,
+        "remainingBalance": 33610.34
+    },
+    {
+        "month": 3,
+        "totalPayment": 33890.43,
+        "principal": 33610.34,
+        "interest": 280.09,
+        "remainingBalance": 0.0
+    }
+]
+
+Request 2:
+{
+  "loanAmount": 0,
+  "interestRate": 12,
+  "termMonths": 12
+}
+Response:
+status: 400
+body: Error: Invalid input: Loan amount must be greater than 0  
+
 --------------------------------------------------------
